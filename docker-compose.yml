@@ -1,0 +1,25 @@
+version: "0.1"
+
+services:
+  python:
+    build: .
+    command: python3 main.py
+    volumes:
+      - .:/opt
+    depends_on:
+      - db
+    links:
+      - db:db
+    environment:
+      PYTHONUNBUFFERED: 1
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+        MYSQL_ROOT_PASSWORD: 9012349000
+    ports:
+      - "3306:3306"
+
+
+
+

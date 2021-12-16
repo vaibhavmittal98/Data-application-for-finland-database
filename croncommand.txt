@@ -1,0 +1,2 @@
+crontab -e
+0 0 5 3 * $(which python3) {path to updatedata.py} >> ~/cron.log 2>&1 
